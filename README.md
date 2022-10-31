@@ -1,22 +1,19 @@
 # Assembly x86 - AT&T syntax
 
-## Useful Theory
-Links:
+## Useful links:
 
 - [System call numbers](https://github.com/opennetworklinux/linux-3.8.13/blob/master/arch/sh/include/uapi/asm/unistd_32.h)
-- http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html
-- https://gist.github.com/mishurov/6bcf04df329973c15044
+- [x86 Assembly Guide](http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html)
+- [AT&T assembly syntax and IA-32 instructions](https://gist.github.com/mishurov/6bcf04df329973c15044)
 
-```
-print (long) nume_variabila
-```
+## Debugging
 Executam
 ```
-gcc -m32 program2.asm -o program2
+gcc -m32 program.s -o program
 ```
 Pentru a putea face debug, vom utiliza gdb. Rulam in terminal
 ```
-gdb program2
+gdb program
 ```
 Punem un breakpoint la adresa de intrare in program, si anume la main:
 ```
@@ -30,6 +27,12 @@ Iar acum, vom executa succesiv
 ```
 i r
 stepi
-```
-Pentru a inspecta valoarea stocata in variabilele declarate cu .space 4, putem
+```  
+<br/>
+<br/>
+
+> Pentru a inspecta valoarea stocata in variabilele declarate cu .space 4, putem
 folosi tot debugger-ul gdb, executand la un pas:
+```
+print (long) nume_variabila
+```
