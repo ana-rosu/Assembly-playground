@@ -9,7 +9,7 @@ produs: .space 4
 rezultat1: .space 4
 rezultat2: .space 4
 sir1: .asciz "PASS\n"
-sir2: .asciz "FAIL\n"
+sir2: .asciz "FALL\n"
 .text
 .globl main
 main:
@@ -28,14 +28,15 @@ main:
   mov cat, %eax
   add produs, %eax
   mov %eax, rezultat1
-
+et:
 //al doilea mod - operatii de shift
   shr $4, x
   shl $4, y
   mov x, %eax
   add y, %eax
   mov %eax, rezultat2
-et:
+
+et2:
 //verific daca 2 variabile sunt egale
   mov rezultat1, %eax
   cmp rezultat2, %eax
@@ -46,15 +47,4 @@ egale:
   mov $1, %ebx
   mov $sir1, %ecx
   mov $6, %edx
-  int $0x80
-  jmp exit
-diferite:
-  mov $4, %eax
-  mov $1, %ebx
-  mov $sir2, %ecx
-  mov $6, %edx
-  int $0x80
-exit:
-  mov $1, %eax
-  mov $0, %ebx
   int $0x80
