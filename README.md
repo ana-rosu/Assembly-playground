@@ -7,25 +7,15 @@
 - [AT&T assembly syntax and IA-32 instructions](https://gist.github.com/mishurov/6bcf04df329973c15044)
 
 ## Debugging
-Executam
 ```
-gcc -m32 program.s -o program
-```
-Pentru a putea face debug, vom utiliza gdb. Rulam in terminal
-```
+gcc -m32 program.s -o program 
 gdb program
-```
-Punem un breakpoint la adresa de intrare in program, si anume la main:
-```
-b main
-```
-Rulam programul
-```
-run
+b main 
+run 
 ```
 Iar acum, vom executa succesiv
 ```
-i r
+i r 
 stepi
 ```  
 <br/>
@@ -35,4 +25,15 @@ stepi
 folosi tot debugger-ul gdb, executand la un pas:
 ```
 print (long) nume_variabila
+```
+
+## Rulare program
+```
+gcc -m32 program.s -o program 
+./program
+```
+## Rulare program cu input dintr-un fisier
+```
+gcc -m32 program.s -o program 
+./program < input.txt
 ```
